@@ -1,0 +1,105 @@
+
+html,
+body {
+  height: 100%;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 194, 233, 1) 70%
+  );
+}
+
+.city-search-container {
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,194,233,1) 70%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.search-input-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.search-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+}
+
+.air-quality-card {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  --yellow: linear-gradient(180deg,#f8d49a -146.42%,#fad79d -46.42%);
+  --orange: #fca61f;
+  --black: #242d49;
+  --gray: #788097;
+  --purple: linear-gradient(180deg,#bb67ff,#c484f3);
+  --pink: #ff919d;
+  --glass: hsla(0,0%,100%,.54);
+  --boxShadow: 0px 19px 60px rgb(0 0 0/8%);
+  --smboxShadow: -79px 51px 60px rgba(0,0,0,.08);
+  --activeItem: #f799a354;
+  -webkit-font-smoothing: antialiased;
+  color: var(--black);
+  font-family: Inter,sans-serif;
+  box-sizing: border-box;
+  background: var(--yellow);
+  border-radius: 30px;
+  box-shadow: var(--boxShadow);
+  margin-bottom: 2rem;
+  padding: 2rem 1rem;
+}
+
+.card {
+  --yellow: linear-gradient(180deg, #f8d49a -146.42%, #fad79d -46.42%);
+  --orange: #fca61f;
+  --black: #242d49;
+  --gray: #788097;
+  --purple: linear-gradient(180deg, #bb67ff, #c484f3);
+  --pink: #ff919d;
+  --glass: hsla(0, 0%, 100%, 0.54);
+  --boxShadow: 0px 19px 60px rgb(0 0 0/8%);
+  --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+  --activeItem: #f799a354;
+  -webkit-font-smoothing: antialiased;
+  color: var(--black);
+  font-family: Inter, sans-serif;
+  box-sizing: border-box;
+  background: var(--yellow);
+  border-radius: 30px;
+  box-shadow: var(--boxShadow);
+  margin-bottom: 2rem;
+  padding: 2rem 1rem;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
