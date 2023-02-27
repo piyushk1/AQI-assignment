@@ -77,64 +77,67 @@ class CitySearch extends Component {
       });
   }
 
-render()
- {
-  const { cityName, airQualityData, isLoading, error } = this.state;
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div className="error-message">{error}</div>;
-  }
-
-  if (airQualityData && airQualityData.iaqi) {
-    const aqiData = airQualityData.iaqi;
-    const aqiValues = Object.values(aqiData);
-    const maxAqiValue = Math.max(...aqiValues.map(item => item.v));
-    const maxAqiKey = Object.keys(aqiData).find(key => aqiData[key].v === maxAqiValue);
-    const maxAqiImpact = getMaxAqiImpact(maxAqiValue);
-
+  render() {
+    const { cityName, airQualityData, isLoading, error } = this.state;
+  
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
+  
+    if (error) {
+      return <div className="error-message">{error}</div>;
+    }
+  
+    if (airQualityData && airQualityData.aqi) {
+      const aqi = airQualityData.aqi;
+      const aqiImpact = getMaxAqiImpact(aqi);
+      const aqiColor = getColor(aqi);
+  
+      return (
+        <Box sx={{ maxWidth: 300 }}>
+          <Card>
+            <CardContent>
+              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                {cityName}
+              </Typography>
+              <Typography variant="h5" component="div" style={{ color: aqiColor }}>
+                {aqi}
+              </Typography>
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                {aqiImpact}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small" onClick={this.handleSearch}>Refresh</Button>
+            </CardActions>
+          </Card>
+        </Box>
+      );
+    }
+  
     return (
-      <div className='container'>
-
-
-
-      <div style={{maxWidth: '180px', textAlign: 'center'}}>
-        <small>{cityName} AQI:</small>
-        <div style={{fontSize: '88px', height: '60px', paddingTop: '30px'}}>
-          {maxAqiValue}
+      <div className="city-search-container">
+        <h2>Search Air Quality by City Name</h2>
+        <div className="search-input-container">
+          <label htmlFor="cityNameInput">City Name: </label>
+          <input
+            type="text"
+            id="cityNameInput"
+            value={cityName}
+            onChange={this.handleCityNameChange}
+            className="search-input"
+          />
+          <button onClick={this.handleSearch} className="search-button">
+            Search
+          </button>
         </div>
-        <div>{maxAqiImpact}</div>
-        
       </div>
-      </div>
-      
     );
   }
-
-  return (
-    <div className="city-search-container">
-      <h2>Search Air Quality by City Name</h2>
-      <div className="search-input-container">
-        <label htmlFor="cityNameInput">City Name: </label>
-        <input
-          type="text"
-          id="cityNameInput"
-          value={cityName}
-          onChange={this.handleCityNameChange}
-          className="search-input"
-        />
-        <button onClick={this.handleSearch} className="search-button">
-          Search
-        </button>
-      </div>
-    </div>
-  );
-}
-
+  
 
 
 }
 export default CitySearch;
+
