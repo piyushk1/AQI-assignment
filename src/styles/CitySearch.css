@@ -1,81 +1,105 @@
 
-.city-cards-container {
-  text-align: center;
+html,
+body {
+  height: 100%;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 194, 233, 1) 70%
+  );
 }
-  
-  .search-input-container {
-    display: flex;
-    margin-bottom: 20px;
-  }
-  
-  .search-input {
-    flex: 1;
-    margin-right: 10px;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .search-button {
-    background-color: #af6f4c;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .error-message {
-    color: red;
-  }
-  
-  .city-card {
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    width: calc(100% / 3 - 10px); /* set the width of each card to one-third of the container width minus the margin */
-    display: inline-block; /* display the cards as inline blocks */
-    vertical-align: top; /* align the cards to the top */
-  }
-  
-  
-  .city-name {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .index-type {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .index-value {
-    font-size: 16px;
-  }
+
+.city-search-container {
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,194,233,1) 70%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.search-input-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.search-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+}
+
+.air-quality-card {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  --yellow: linear-gradient(180deg,#f8d49a -146.42%,#fad79d -46.42%);
+  --orange: #fca61f;
+  --black: #242d49;
+  --gray: #788097;
+  --purple: linear-gradient(180deg,#bb67ff,#c484f3);
+  --pink: #ff919d;
+  --glass: hsla(0,0%,100%,.54);
+  --boxShadow: 0px 19px 60px rgb(0 0 0/8%);
+  --smboxShadow: -79px 51px 60px rgba(0,0,0,.08);
+  --activeItem: #f799a354;
+  -webkit-font-smoothing: antialiased;
+  color: var(--black);
+  font-family: Inter,sans-serif;
+  box-sizing: border-box;
+  background: var(--yellow);
+  border-radius: 30px;
+  box-shadow: var(--boxShadow);
+  margin-bottom: 2rem;
+  padding: 2rem 1rem;
+}
 
 .card {
-  width: 150px;
-  height: 100px;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  display: inline-block;
-  text-align: center;
+  --yellow: linear-gradient(180deg, #f8d49a -146.42%, #fad79d -46.42%);
+  --orange: #fca61f;
+  --black: #242d49;
+  --gray: #788097;
+  --purple: linear-gradient(180deg, #bb67ff, #c484f3);
+  --pink: #ff919d;
+  --glass: hsla(0, 0%, 100%, 0.54);
+  --boxShadow: 0px 19px 60px rgb(0 0 0/8%);
+  --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+  --activeItem: #f799a354;
+  -webkit-font-smoothing: antialiased;
+  color: var(--black);
+  font-family: Inter, sans-serif;
+  box-sizing: border-box;
+  background: var(--yellow);
+  border-radius: 30px;
+  box-shadow: var(--boxShadow);
+  margin-bottom: 2rem;
+  padding: 2rem 1rem;
 }
 
-.card-good {
-  background-color: #6dd369; /* green */
+.card-content {
+  padding: 1rem;
 }
 
-.card-moderate {
-  background-color: #fcd34d; /* yellow */
-}
-
-.card-bad {
-  background-color: #ff6666; /* red */
-}

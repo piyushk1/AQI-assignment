@@ -7,6 +7,9 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import '../styles/CitySearch.css';
+import '../styles/AirQualityCard.css';
+
 function getColor(aqi) {
   if (aqi <= 50) {
     return 'green';
@@ -77,9 +80,12 @@ class CitySearch extends Component {
       });
   }
 
-
   render() {
     const { cityName, airQualityData, isLoading, error } = this.state;
+  
+    // Get the current date and day
+    const currentDate = new Date();
+    const currentDay = currentDate.toLocaleString('default', { weekday: 'long' });
   
     if (isLoading) {
       return <div>Loading...</div>;
@@ -87,33 +93,6 @@ class CitySearch extends Component {
   
     if (error) {
       return <div className="error-message">{error}</div>;
-    }
-  
-    if (airQualityData && airQualityData.aqi) {
-      const aqi = airQualityData.aqi;
-      const aqiImpact = getMaxAqiImpact(aqi);
-      const aqiColor = getColor(aqi);
-  
-      return (
-        <Box sx={{ maxWidth: 300 }}>
-          <Card>
-            <CardContent>
-              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                {cityName}
-              </Typography>
-              <Typography variant="h5" component="div" style={{ color: aqiColor }}>
-                {aqi}
-              </Typography>
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                {aqiImpact}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small" onClick={this.handleSearch}>Refresh</Button>
-            </CardActions>
-          </Card>
-        </Box>
-      );
     }
   
     return (
@@ -132,11 +111,32 @@ class CitySearch extends Component {
             Search
           </button>
         </div>
+        {airQualityData && airQualityData.aqi && (
+          <div className="air-quality-container">
+            <div className="air-quality-card">
+              <div>
+                <h2>{currentDate.toLocaleDateString()}</h2>
+                <div>{currentDay}</div>
+              </div>
+              <div>
+                <div className="city-name">{airQualityData.city.name}</div>
+                <div className="aqi-value" style={{ color: getColor(airQualityData.aqi) }}>
+                  {airQualityData.aqi}
+                </div>
+                <div className="aqi-impact">{getMaxAqiImpact(airQualityData.aqi)}</div>
+              </div>
+              <div>
+               
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
   
-
+  
+  
 
 }
 export default CitySearch;

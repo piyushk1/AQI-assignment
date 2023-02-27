@@ -1,0 +1,52 @@
+.air-quality-card {
+    background: var(--yellow);
+    border-radius: 30px;
+    box-shadow: var(--boxShadow);
+    color: var(--black);
+    font-family: Inter, sans-serif;
+    margin: 1em auto;
+    max-width: 960px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5em;
+    height: 240px;
+  }
+  
+  .air-quality-card h2 {
+    font-size: 22px;
+    margin-bottom: 0.5em;
+  }
+  
+  .air-quality-card .city-name {
+    font-size: 32px;
+    margin-bottom: 0.5em;
+  }
+  
+  .air-quality-card .aqi-value {
+    font-size: 64px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  
+  .air-quality-card .aqi-impact {
+    font-size: 22px;
+    margin-bottom: 1em;
+  }
+  
+  .air-quality-card .refresh-button {
+    background-color: var(--activeItem);
+    border: none;
+    border-radius: 30px;
+    color: var(--glass);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0.8em 1.5em;
+    transition: background-color 0.2s ease;
+  }
+  
+  .air-quality-card .refresh-button:hover {
+    background-color: var(--activeItem);
+  }
+  
