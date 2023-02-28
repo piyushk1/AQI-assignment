@@ -12,12 +12,12 @@ This is a simple web application that allows users to search for air quality dat
 
 To run the application locally, follow these steps:
 
-    Clone this repository: git clone `https://github.com/piyushk1/AQI-assignment.git`
-    Install dependencies: ```bash npm install```
-    Start the development server: ```bash npm start ```
-	open another terminal : ```bash cd src ```
-	```bash node server.js ```
-    Open http://localhost:8080 
+   - Clone this repository: git clone `https://github.com/piyushk1/AQI-assignment.git`
+   - Install dependencies: ```bash npm install```
+   - Start the development server: ```bash npm start ```
+   - open another terminal : ` cd src `
+   - ` node server.js `
+   - Open http://localhost:8080 
 
 
 ### Tech Stack
