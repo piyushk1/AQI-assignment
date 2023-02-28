@@ -9,19 +9,19 @@ const app = express();
 app.get('/air-quality', async (req, res) => {
   const city = req.query.city;
 
-  // Check if the response for this city is already cached
+  // if the response for this city is already cached
   const cachedResponse = cache.get(city);
   if (cachedResponse) {
     console.log(`Returning cached response for ${city}`);
     return res.json(cachedResponse);
   }
 
-  // If the response is not cached, make a new API call
+  // If nor then make a new API call
   try {
     const response = await axios.get(`https://api.waqi.info/feed/${city}/?token=6162fe42bbef7e13590930efa4ac710203c66590`);
     const airQualityData = response.data.data;
     console.log(`Fetched new data for ${city}`);
-    // Cache the response for future requests
+    // Cache the response future 
     cache.set(city, airQualityData);
     res.json(airQualityData);
   } catch (error) {
